@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap/css/bootstrap.css')}}">
+    <!-- <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}"> -->
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap/js/bootstrap.js')}}">
+    <style>
+        
+        .card{
+            margin: 10px auto;
+            height: auto;
+           box-shadow: 2px 2px 10px black;
+            padding: 20px 10px 20px 10px;
+            transition: all 0.5s ease;
+        }
+        .card:hover{
+            transform: scale(1.02);
+            color: blueviolet;
+        }
+        .card img{
+            height: 40vh;
+        }
+        .landingpage{
+            height: 70vh;
+            margin-top: 80px;
+        }
+        .landingpage img{
+            border-radius: 30px 30px 77px 70px;
+        }
+        h1{
+            font-size: 60px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <script src="{{url_for('static',filename='bootstrap/js/bootstrap.js')}}"></script>
+    <section class="landingpage">
+        <div class="container">
+            <div class="row">
+                {% with messages=get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                {% for category,msg in messages %}
+                    <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+                        <strong>{{msg}}</strong> 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+        
+                <div class="col-lg-6 col-xs-6">
+                    <p> 
+                        <a href="#"class="btn btn-outline-primary"
+                        style="color: red; transform: touppercase;">{{session['username']}} </a>
+                    </p>
+                    <h1>Welcome to <br> shopping website </h1> 
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem provident impedit ipsum!</p> 
+                </div>
+               
+                <div class="col-lg-6 col-xs-6">
+                    <a href="/logout" class="btn btn-danger" style="margin-left:100%; margin-bottom:10px;">Logout</a>
+                    <img src="/static/images/eight.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container" >
+        <h3 style="text-align: center; color:#555; margin-bottom:30px;">Products</h3>
+    <form action="" method="post">
+    <div class="row">
+<div class="col-md-4 col-xs-4">
+    <div class="card">
+
+     <img src="/static/images/one.jpg" alt="">
+     <label for=""><i><b>Price</b></i>=$</label>
+     <a href="/order" class="btn btn-danger" style="margin-left:25%; width:70%;">Order</a>
+     
+    </div>
+</div>
+<div class="col-md-4 col-xs-4">
+    <div class="card">
+        <img src="/static/images/two.jpg" alt="">
+        <label for=""><i><b>Price</b></i>=$</label>
+        <a href="/order" class="btn btn-danger" style="margin-left:25%; width:70%;">Order</a>
+        
+    </div>
+</div>
+    
+
+        {% for data in all_data %}
+        <div class="col-md-4 col-xs-4">
+            <div class="card">
+                <img src="data:image/jpeg;base64, {{data[1] | safe}}" class="img-responsive" alt="Responsive image" width="100%" height="100vh">
+                <label for=""><i><b>Price</b></i>=<span class="success"style="color:red;text-size:large;">{{data[2]}}ksh</span></label>
+                <a href="/order" class="btn btn-warning" style="margin-left:25%; width:70%;">Order</a>
+            </div>
+        </div>
+        {% endfor %}
+        
+</div>
+</form>
+</div>
+
+</body>
+</html>

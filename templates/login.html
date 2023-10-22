@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% block tiitle %}
+Login
+{% endblock %}
+<style>
+</style>
+
+
+{% block body %}
+
+<form action="" method="post">
+    <div class="card">
+        {% with messages=get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+        {% for category,msg in messages %}
+            <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+                <strong>{{msg}}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <label for="">Username</label>
+        <input type="text/email" placeholder="Enter username or email" name="username" required >
+        <label for="">Password</label>
+        <input type="password" placeholder="Enter your password" name="password" required>
+        <input type="Submit" class="btn btn-success" style="margin: 3px;">
+        <p style="text-align: center;"> Forgot password <a href="/forgotpassword">Click Here</a></p>
+    </div>
+</form> 
+
+{% endblock %}

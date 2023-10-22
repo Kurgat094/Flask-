@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block tiitle %}
+Register
+{% endblock %}
+
+
+{% block body %}
+
+<form action="" method="post">
+    <div class="container">
+        <div class="card">
+            <label for="">Username</label>
+            <input type="text" placeholder="Enter username" name="name" required >
+            <label for="">Email</label>
+            <input type="email" placeholder="Enter your email" name="email" required>
+            <label for="">Password</label>
+            <input type="text" placeholder="Enter your password" name="password" required>
+            <label for="">Confirm password</label>
+            <input type="text" placeholder="Confirm password" name="password" required>
+            <input type="Submit" class="btn btn-success">
+            <p> &nbsp;&nbsp; Already have an account?  &nbsp;&nbsp;&nbsp;<a href="/login">login</a></p>
+        </div>
+        
+    </div>
+</form>
+
+{% endblock %}

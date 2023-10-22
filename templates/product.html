@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap/js/bootstrap.js')}}">
+    <style>
+        input{
+            padding: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <form method="post" action="/product" enctype="multipart/form-data">
+                    <label for="">Products</label>
+                    <input type="file" name="pic" required >
+                    <input type="ksh" placeholder="Enter the Price" name="price" required >
+                    <input type="submit" value="Upload" class="btn btn-success ">
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

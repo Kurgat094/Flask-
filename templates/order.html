@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+
+{% block tittle %}
+
+<style>
+    body{
+        margin: 10px;
+
+    }
+
+</style>
+
+{% endblock %}
+ 
+{% block body %}
+{% if 'username' in session %}
+<a href="/profile" class="btn btn-warning" >Pay</a>
+{% else %}
+<a href="/register" class="btn btn-danger">Register</a>
+{% endif %}
+{% endblock %}

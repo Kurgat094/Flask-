@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+
+{% endblock %}
+
+{% block body %}
+<style>
+
+</style>
+<form action="" method="post">
+    <div class="classic">
+        <h3><b>Welcome to your ordering site <i style="color: red;">Order in affordable price</i></b></h3>
+        <label for="">location</label>
+        <input type="text" placeholder="Enter your location" required>
+        <label for="">Price</label>
+        <input type="text" value="{{price}}">
+        <label for="">Phone</label>
+        <input type="phone" placeholder="Enter  your phone number" required>
+        <input type="submit" class="btn btn-success" style="width:30%; justify-content:center;">
+    </div>
+</form>
+{% endblock %}
